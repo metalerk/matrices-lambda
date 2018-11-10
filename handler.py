@@ -30,8 +30,6 @@ def main(*args, **kwargs):
 		[x.to_frame().T for x in list_df]
 	).reset_index(drop=True)
 
-	print(dfs)
-
 	return {}
 
 if __name__ == '__main__':
