@@ -13,7 +13,6 @@ def get_line_number(path):
 				return c - 2
 	return 0
 
-# def main(event, context):
 def main(*args, **kwargs):
 	dimension = get_line_number('matrices.csv')
 	matrix = pd.read_csv('matrices.csv')
