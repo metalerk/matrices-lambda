@@ -16,7 +16,9 @@ def get_line_number(path):
 				return c - 2
 	return 0
 
-def main(*args, **kwargs):
+def main(event, context, **kwargs):
+	if event:
+		kwargs = event
 	dimension = get_line_number(kwargs['file'])
 	matrix = pd.read_csv(kwargs['file'])
 	initial_pos = 0
@@ -55,7 +57,9 @@ if __name__ == '__main__':
 	parser.add_argument('-v', '--verbose', action='store_true', default=False, help='Verbose')
 
 	args = parser.parse_args()
-	main(file=args.file,
+	main(event={},
+		 context={},
+		 file=args.file,
 		 output=args.output,
 		 mode=args.mode,
 		 verbose=args.verbose
